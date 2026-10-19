@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="University of Cincinnati">
+  <rect width="64" height="64" rx="12" fill="#ffffff"/>
+  <g fill="none" stroke="#E00122" stroke-width="7.5" stroke-linecap="butt" stroke-linejoin="round">
+    <path d="M16 13v24a12 12 0 0 0 24 0V13"/>
+    <path d="M52 21.5a13 13.5 0 1 0 0 21"/>
+  </g>
+</svg>

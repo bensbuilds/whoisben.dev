@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benjamin Gregg — Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Benjamin Gregg is a senior software engineer in Columbus, Ohio. He helped scale EarnIn from thousands to millions of customers."
+    />
+    <meta name="theme-color" content="#1a1e23" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      try {
+        if (localStorage.getItem("whoisben-theme") === "light") {
+          document.documentElement.dataset.theme = "light";
+        }
+      } catch (error) {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <nav class="section-nav" aria-label="Sections">
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="section-nav-panel"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                d="M4 7h16M4 12h16M4 17h16"
+              />
+            </svg>
+          </button>
+          <div class="section-nav-links" id="section-nav-panel">
+            <a href="#top">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#internships">Internships</a>
+            <a href="#education">Education</a>
+          </div>
+        </nav>
+        <div class="settings">
+          <button
+            type="button"
+            class="settings-toggle"
+            id="settings-toggle"
+            aria-label="Settings"
+            aria-expanded="false"
+            aria-controls="settings-menu"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12.2 2h-.4a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.4a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+            </svg>
+          </button>
+          <div class="settings-menu" id="settings-menu" hidden>
+            <span class="settings-label" id="settings-theme-label">Theme</span>
+            <div class="theme-switch" role="group" aria-labelledby="settings-theme-label">
+              <button type="button" class="theme-option" data-theme-choice="light" aria-pressed="false">
+                Light
+              </button>
+              <button type="button" class="theme-option" data-theme-choice="dark" aria-pressed="true">
+                Dark
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="intro container" id="top">
+        <div class="intro-copy">
+          <h1>Ben</h1>
+          <p class="role">Senior Software Engineer</p>
+          <p class="location">
+            <a href="https://maps.google.com/?q=Columbus,+Ohio" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                  d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z"
+                />
+                <circle cx="12" cy="11" r="2" fill="currentColor" stroke="none" />
+              </svg>
+              Columbus, Ohio
+            </a>
+          </p>
+          <p class="summary">
+            Over 10 years of engineering experience in bank data
+            integrations, service modernization, scalability, and cost
+            optimization. Contributed to scaling a consumer product from
+            thousands to millions of customers.
+          </p>
+          <ul class="contact">
+            <li>
+              <a href="mailto:greggbj@gmail.com">
+                <svg class="icon-email" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect
+                    x="3"
+                    y="5.5"
+                    width="18"
+                    height="13"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <path
+                    d="m4 7 8 6 8-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                greggbj@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/benjamin-gregg/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg class="icon-linkedin" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" />
+                  <path
+                    class="linkedin-ink"
+                    d="M7.2 10.2H9v6.3H7.2v-6.3ZM8.1 6.6a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM10.6 10.2h1.7v.9h.1c.2-.4 1-1 2-1 2.1 0 2.5 1.4 2.5 3.2v3.2h-1.8v-2.8c0-.7 0-1.5-1-1.5s-1.1.7-1.1 1.5v2.8h-1.8v-6.3Z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="tel:+16148049208">
+                <svg class="icon-phone" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                    d="M7 3.8h3.2l1.2 3-2 1.2a12.2 12.2 0 0 0 6.6 6.6l1.2-2 3 1.2V17a2 2 0 0 1-2.2 2A15.2 15.2 0 0 1 5 6a2 2 0 0 1 2-2.2Z"
+                  />
+                </svg>
+                (614) 804-9208
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="intro-aside">
+          <figure class="portrait">
+          <img
+            src="portrait.jpg"
+            alt="Portrait of Benjamin Gregg"
+            onerror="this.remove()"
+          />
+          <figcaption class="portrait-fallback">
+            <strong>B</strong>
+            <span>Your portrait here</span>
+          </figcaption>
+        </figure>
+          <div class="downloads">
+            <a id="download-pdf" href="files/Benjamin_Gregg_Resume.pdf" download="Benjamin_Gregg_Resume.pdf">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  fill="#E5252A"
+                  d="M4.2 1.4h7.1L16.6 6.6V16.8a1.8 1.8 0 0 1-1.8 1.8H4.2a1.8 1.8 0 0 1-1.8-1.8V3.2a1.8 1.8 0 0 1 1.8-1.8z"
+                />
+                <path fill="#F6A3A6" d="M11.3 1.5 16.5 6.6h-3.6a1.6 1.6 0 0 1-1.6-1.6V1.5z" />
+                <text
+                  x="9.5"
+                  y="14.7"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-family="Arial, Helvetica, sans-serif"
+                  font-size="5.1"
+                  font-weight="700"
+                >
+                  PDF
+                </text>
+              </svg>
+              Download résumé (PDF)
+            </a>
+            <a id="download-word" href="files/Benjamin_Gregg_Resume.docx" download="Benjamin_Gregg_Resume.docx">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  fill="#2B579A"
+                  d="M4.2 1.4h7.1L16.6 6.6V16.8a1.8 1.8 0 0 1-1.8 1.8H4.2a1.8 1.8 0 0 1-1.8-1.8V3.2a1.8 1.8 0 0 1 1.8-1.8z"
+                />
+                <path fill="#8FB4E0" d="M11.3 1.5 16.5 6.6h-3.6a1.6 1.6 0 0 1-1.6-1.6V1.5z" />
+                <text
+                  x="9.5"
+                  y="15.2"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-family="Arial, Helvetica, sans-serif"
+                  font-size="8"
+                  font-weight="700"
+                >
+                  W
+                </text>
+              </svg>
+              Download résumé (Word)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills container" id="skills">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+          <article class="skill">
+            <span class="skill-icon skill-icon-code" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8 8-4 4 4 4M16 8l4 4-4 4"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Languages &amp; Frameworks</h3>
+              <ul class="skill-chips">
+                <li>C#</li>
+                <li>.NET / .NET Core</li>
+                <li>.NET Framework</li>
+                <li>ASP.NET MVC</li>
+                <li>SQL</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>AngularJS</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="skill">
+            <span class="skill-icon skill-icon-cloud" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                  d="M7 17h10.2a3.6 3.6 0 0 0 .5-7.2 5.2 5.2 0 0 0-10-1.1A3.3 3.3 0 0 0 7 17Z"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Cloud &amp; Infrastructure</h3>
+              <ul class="skill-chips">
+                <li>AWS (EC2, S3, RDS, Aurora, SNS, SQS, Kinesis)</li>
+                <li>Kubernetes</li>
+                <li>Terraform</li>
+                <li>Kafka</li>
+                <li>Cloudflare</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="skill">
+            <span class="skill-icon skill-icon-data" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <ellipse
+                  cx="12"
+                  cy="6.5"
+                  rx="7"
+                  ry="2.6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  d="M5 6.5v11c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-11"
+                />
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Data</h3>
+              <ul class="skill-chips">
+                <li>MySQL</li>
+                <li>SQL Server</li>
+                <li>DynamoDB</li>
+                <li>Elasticsearch</li>
+                <li>Redis</li>
+                <li>Databricks</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="skill">
+            <span class="skill-icon skill-icon-tools" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.5 6.5a4 4 0 0 0-5.4 5.2L5 16l3 3 4.3-4.1a4 4 0 0 0 5.2-5.4L15 12l-2.2-2.2 1.7-3.3Z"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Tools</h3>
+              <ul class="skill-chips">
+                <li>Cursor</li>
+                <li>GitHub</li>
+                <li>Argo CD</li>
+                <li>Datadog</li>
+                <li>incident.io</li>
+                <li>Optimizely</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience container" id="experience">
+        <h2>Professional Experience</h2>
+        <div class="jobs">
+          <article class="job">
+            <img class="job-logo job-logo-flush" src="logos/earnin.svg" alt="" width="40" height="40" />
+            <div class="job-body">
+              <div class="job-head">
+                <h3>EarnIn (formerly Activehours)</h3>
+                <p class="job-when job-when-strong">January 2015 – October 2026</p>
+              </div>
+              <ul class="tracks">
+                <li>
+                  <span>Senior Software Engineer</span>
+                  <span class="job-when">July 2022 – October 2026</span>
+                </li>
+                <li>
+                  <span>Software Engineer</span>
+                  <span class="job-when">April 2015 – July 2022</span>
+                </li>
+                <li>
+                  <span>Engineering Intern</span>
+                  <span class="job-when">January 2015 – April 2015</span>
+                </li>
+              </ul>
+              <div class="highlights">
+                <div>
+                  <h4>Bank Data Platform &amp; Integrations</h4>
+                  <ul>
+                    <li>
+                      Collaborated on the design and implementation of a
+                      provider-agnostic C#/.NET bank data platform with
+                      connection redundancy and provider fallback, ultimately
+                      supporting millions of bank connections and billions of
+                      transactions.
+                    </li>
+                    <li>
+                      Implemented and maintained Plaid, MX, Quovo, Akoya,
+                      Capital One, and Wells Fargo integrations, working
+                      directly with provider teams on launches, new features,
+                      and troubleshooting.
+                    </li>
+                    <li>
+                      Delivered approximately $3M in annual savings by routing
+                      bank connections to lower-cost providers based on the
+                      financial institution.
+                    </li>
+                    <li>
+                      Built automated, billing-aware connection pruning jobs
+                      contributing to $1.2M in annual savings without impacting
+                      user experience.
+                    </li>
+                    <li>
+                      Served as the bank data platform’s primary technical
+                      owner, co-leading technical projects, troubleshooting
+                      complex issues, and resolving production incidents.
+                    </li>
+                    <li>
+                      Interviewed, onboarded, and mentored engineers on bank
+                      integrations, service architecture, and production
+                      operations.
+                    </li>
+                    <li>
+                      Contributed to bank transaction data-access rewrites for
+                      two migrations: SQL Server to Elasticsearch for
+                      performance, and Elasticsearch to DynamoDB for cost
+                      reduction; validated correctness with parity checks.
+                    </li>
+                    <li>
+                      Built full-stack bank troubleshooting tools with C#/.NET
+                      APIs, ASP.NET MVC, and AngularJS, enabling customer
+                      service agents to investigate and resolve bank connection
+                      issues.
+                    </li>
+                    <li>
+                      Led the transition of bank data platform development and
+                      production ownership to the Bangkok engineering team
+                      through knowledge transfer; remained an escalation
+                      contact after the handoff.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Platform Modernization &amp; Efficiency</h4>
+                  <ul>
+                    <li>
+                      Migrated legacy .NET Framework web services, message
+                      processors, and scheduled jobs from EC2 to modern .NET
+                      microservices on Kubernetes to improve scalability; used
+                      Cloudflare Workers to gradually shift API traffic during
+                      rollout.
+                    </li>
+                    <li>
+                      Replaced SQS delivery flows with SNS and Kafka to support
+                      multiple downstream consumers, using Optimizely-controlled
+                      rollouts to validate behavior during migration.
+                    </li>
+                    <li>
+                      Migrated database-intensive scheduled jobs to Databricks
+                      using replicated data, reducing production database load;
+                      verified matching results before switching production
+                      processing.
+                    </li>
+                    <li>
+                      Optimized service resources and scaling policies, saving
+                      tens of thousands of dollars annually while improving
+                      scaling reliability.
+                    </li>
+                    <li>
+                      Reduced log volume and record size, lowering Datadog
+                      costs by over $50K annually.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="internships container" id="internships">
+        <h2>Internships</h2>
+        <div class="jobs">
+          <article class="job">
+            <img class="job-logo" src="logos/honda.svg" alt="" width="40" height="40" />
+            <div class="job-body">
+              <div class="job-head">
+                <h3>Honda North America</h3>
+                <p class="job-when job-when-strong">May – August 2014</p>
+              </div>
+              <p class="job-title">IT Support Intern</p>
+            </div>
+          </article>
+
+          <article class="job">
+            <img class="job-logo job-logo-flush" src="logos/marathon.svg" alt="" width="40" height="40" />
+            <div class="job-body">
+              <div class="job-head">
+                <h3>Marathon Petroleum</h3>
+                <p class="job-when job-when-strong">January – May 2014</p>
+              </div>
+              <p class="job-title">Business Analyst Intern</p>
+            </div>
+          </article>
+
+          <article class="job">
+            <img class="job-logo" src="logos/ge.svg" alt="" width="40" height="40" />
+            <div class="job-body">
+              <div class="job-head">
+                <h3>GE Aviation</h3>
+                <p class="job-when job-when-strong">February 2012 – December 2013</p>
+              </div>
+              <p class="job-title">Data Quality Analyst Intern</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="education container" id="education">
+        <h2>Education</h2>
+        <div class="jobs">
+          <article class="job">
+            <img class="job-logo job-logo-flush" src="logos/uc.svg" alt="" width="40" height="40" />
+            <div class="job-body">
+              <div class="job-head">
+                <h3>University of Cincinnati</h3>
+                <p class="job-when job-when-strong">September 2010 – June 2016</p>
+              </div>
+              <p class="job-title">Bachelor of Science in Information Technology</p>
+              <p class="job-meta">GPA: 3.8</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Design by ChatGPT, implementation by Cursor, prompts by Ben</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
