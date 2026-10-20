@@ -1,0 +1,14 @@
+---
+description: Core facts and guardrails for whoisben.dev
+alwaysApply: true
+---
+
+# whoisben.dev project facts
+
+- The site uses plain HTML, CSS, and JavaScript. There is no build step, framework, or package manager unless the user asks for one.
+- Hosting is a private S3 bucket behind CloudFront. The live site is https://whoisben.dev/
+- Deployment happens through GitHub Actions after changes merge into `main`. See `.github/workflows/deploy.yml`. `main` only accepts pull requests.
+- Preserve the existing layout, accessibility, and résumé downloads unless the user asks to change them.
+- Do not put AWS credentials in code. Deployment authenticates with GitHub OIDC through repository variables such as `AWS_ROLE_ARN` and `AWS_REGION`. Pin GitHub Actions to full commit SHAs.
+- Do not publish repository files outside the website assets. Only the files staged by the deploy workflow belong in S3. Repository documentation, `.cursor/`, and `.github/` are not website assets.
+- Do not add `--delete` to the automatic deploy sync. Removing a file from Git does not remove its published S3 object. Delete stale S3 objects deliberately, as a separate reviewed step.
