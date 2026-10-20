@@ -12,7 +12,7 @@ This is a static résumé page. Change only what was asked, and keep the visible
 
 ## HTML
 
-- One `h1`. Sections use `h2`, roles and schools use `h3`, experience groups use `h4`.
+- One `h1`. Sections use `h2`. Skill groups, company names, and schools use `h3`. Experience groups use `h4`. Role titles stay in a `span` or `p.job-title`.
 - Keep the skip link, `main`, `header`, `nav`, and `footer`.
 - External links use `target="_blank"` and `rel="noopener noreferrer"`, plus a visually hidden "(opens in a new tab)".
 - The contact list stays inside `address`. `address` stays `display: contents` so the chips still sit at the bottom of the intro on wide screens.

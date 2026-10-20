@@ -6,7 +6,7 @@ The site is static: one HTML page, one stylesheet, and one script. Dark is the d
 
 ## View it locally
 
-Open `index.html` in a browser, or serve the folder with any static file server. The portrait, logos, and résumé downloads are loaded from this folder, so the page needs to be served or opened as a file from the repository root.
+Serve the repository root with any static file server, then open its local URL in a browser. Opening `index.html` directly as a file blocks the module script, so the menus and theme buttons will not work.
 
 ## Repository layout
 
