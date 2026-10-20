@@ -618,6 +618,7 @@ html[data-theme="light"] .portrait {
 .experience,
 .internships,
 .education,
+.about-site,
 .site-footer,
 .job {
   position: relative;
@@ -626,7 +627,8 @@ html[data-theme="light"] .portrait {
 .skills,
 .experience,
 .internships,
-.education {
+.education,
+.about-site {
   padding: 1.45rem 0 1.6rem;
   scroll-margin-top: 66px;
 }
@@ -642,12 +644,41 @@ h2 {
 .skills h2::after,
 .experience h2::after,
 .internships h2::after,
-.education h2::after {
+.education h2::after,
+.about-site h2::after {
   content: "";
   display: block;
   height: var(--rule-size, 1px);
   margin-top: calc(6px + var(--rule-shift, 0px));
   background: var(--rule-seen);
+}
+
+.about-site-copy {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 52rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.about-site-copy a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-site-copy a:hover {
+  color: var(--text);
+}
+
+.about-site code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--text);
+  background: var(--intro-bg);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 0.05rem 0.3rem;
 }
 
 .skill-grid {
@@ -1058,6 +1089,7 @@ h2 {
 
 @media print {
   .skip-link,
+  .about-site,
   .downloads,
   .settings,
   .settings-menu,

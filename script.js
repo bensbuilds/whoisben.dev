@@ -127,7 +127,7 @@ if (navToggle && navPanel) {
 }
 
 const sectionRules = document.querySelectorAll(
-  ".skills h2, .experience h2, .internships h2, .education h2"
+  ".skills h2, .experience h2, .internships h2, .education h2, .about-site h2"
 );
 
 function alignSectionRules() {
