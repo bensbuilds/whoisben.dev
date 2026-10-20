@@ -28,6 +28,7 @@
   --skill-tools: #e6c15c;
   --icon-email: #e2a23a;
   --icon-linkedin: #70b5f9;
+  --icon-github: #eef2f5;
   --icon-phone: #4cba5e;
   --max: 1040px;
   --rule: rgba(168, 188, 204, 0.23);
@@ -67,6 +68,7 @@ html[data-theme="light"] {
   --skill-tools: #b18416;
   --icon-email: #b8760b;
   --icon-linkedin: #0a66c2;
+  --icon-github: #24292f;
   --icon-phone: #1d7a38;
   --rule: #d3dae0;
   --rule-seen: #d3dae0;
@@ -544,6 +546,10 @@ h1 {
 
 .contact svg.icon-linkedin {
   color: var(--icon-linkedin);
+}
+
+.contact svg.icon-github {
+  color: var(--icon-github);
 }
 
 .contact svg.icon-phone {
@@ -1090,6 +1096,7 @@ h2 {
   .contact svg,
   .contact svg.icon-email,
   .contact svg.icon-linkedin,
+  .contact svg.icon-github,
   .contact svg.icon-phone,
   .tracks li::before {
     color: #1d4e89;
