@@ -70,11 +70,12 @@
             </svg>
           </button>
           <div class="section-nav-links" id="section-nav-panel">
-            <a href="#top">About</a>
+            <a href="#top">Overview</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#internships">Internships</a>
             <a href="#education">Education</a>
+            <a href="#under-the-hood">Under the Hood</a>
           </div>
         </nav>
         <div class="settings">
@@ -580,6 +581,32 @@
               <p class="job-meta">GPA: 3.8</p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="about-site container" id="under-the-hood">
+        <h2>Under the Hood</h2>
+        <div class="about-site-copy">
+          <p>
+            This page was built with an iterative, AI-assisted workflow:
+            exploring layouts, typography, colors, and interactions with
+            ChatGPT, then implementing and refining the design in Cursor.
+          </p>
+          <p>
+            The site uses plain HTML, CSS, and JavaScript, hosted in a private
+            Amazon S3 bucket behind Amazon CloudFront. AWS Certificate Manager
+            provides HTTPS, with DNS managed through Namecheap.
+          </p>
+          <p>
+            Source code lives in <a href="https://github.com/bensbuilds/whoisben.dev" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>, with Greptile providing automated AI
+            <a href="https://github.com/bensbuilds/whoisben.dev/pulls" target="_blank" rel="noopener noreferrer">code reviews on pull requests<span class="visually-hidden"> (opens in a new tab)</span></a>. Changes merged into <code>main</code> trigger a
+            <a href="https://github.com/bensbuilds/whoisben.dev/actions/workflows/deploy.yml" target="_blank" rel="noopener noreferrer">GitHub Actions pipeline<span class="visually-hidden"> (opens in a new tab)</span></a> that checks required files and JavaScript
+            syntax, publishes the website to S3, refreshes CloudFront’s cache,
+            and verifies the site responds. Deployments authenticate through
+            OpenID Connect (OIDC), assuming an AWS IAM role restricted to the
+            repository and deployment branch, with permissions scoped to the
+            site’s S3 bucket and CloudFront distribution.
+          </p>
         </div>
       </section>
     </main>
