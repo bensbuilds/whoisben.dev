@@ -15,14 +15,15 @@ function applyTheme(theme) {
   }
   themeOptions.forEach((button) => {
     const selected = button.dataset.themeChoice === (light ? "light" : "dark");
-    button.setAttribute("aria-pressed", selected ? "true" : "false");
+    button.setAttribute("aria-checked", selected ? "true" : "false");
+    button.tabIndex = selected ? 0 : -1;
   });
   if (themeMeta) {
     themeMeta.setAttribute("content", light ? "#eef1f4" : "#1a1e23");
   }
   try {
     localStorage.setItem("whoisben-theme", light ? "light" : "dark");
-  } catch (error) {}
+  } catch {}
 }
 
 function setSettingsOpen(open) {
@@ -55,8 +56,32 @@ if (settingsToggle && settingsMenu) {
     });
   });
 
+  document.querySelector(".theme-switch")?.addEventListener("keydown", (event) => {
+    const options = [...themeOptions];
+    if (!options.length) return;
+    const current = Math.max(
+      0,
+      options.findIndex((button) => button.getAttribute("aria-checked") === "true")
+    );
+    let next = null;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (current + 1) % options.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (current - 1 + options.length) % options.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = options.length - 1;
+    }
+    if (next === null) return;
+    event.preventDefault();
+    applyTheme(options[next].dataset.themeChoice);
+    options[next].focus();
+  });
+
   document.addEventListener("click", (event) => {
-    if (!settingsMenu.hidden && !settingsMenu.contains(event.target)) {
+    if (!(event.target instanceof Node)) return;
+    if (!settingsMenu.hidden && !settingsMenu.contains(event.target) && !settingsToggle.contains(event.target)) {
       setSettingsOpen(false);
     }
     if (
@@ -133,4 +158,11 @@ window.addEventListener("resize", scheduleSectionRules);
 window.addEventListener("scroll", scheduleSectionRules, { passive: true });
 if (document.fonts) {
   document.fonts.ready.then(alignSectionRules);
+}
+
+const portrait = document.querySelector(".portrait img");
+if (portrait) {
+  const dropPortrait = () => portrait.remove();
+  portrait.addEventListener("error", dropPortrait);
+  if (portrait.complete && portrait.naturalWidth === 0) dropPortrait();
 }

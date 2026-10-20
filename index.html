@@ -23,10 +23,11 @@
         if (localStorage.getItem("whoisben-theme") === "light") {
           document.documentElement.dataset.theme = "light";
         }
-      } catch (error) {}
+      } catch {}
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
         <nav class="section-nav" aria-label="Sections">
@@ -86,11 +87,11 @@
           </button>
           <div class="settings-menu" id="settings-menu" hidden>
             <span class="settings-label" id="settings-theme-label">Theme</span>
-            <div class="theme-switch" role="group" aria-labelledby="settings-theme-label">
-              <button type="button" class="theme-option" data-theme-choice="light" aria-pressed="false">
+            <div class="theme-switch" role="radiogroup" aria-labelledby="settings-theme-label">
+              <button type="button" class="theme-option" role="radio" data-theme-choice="light" aria-checked="false" tabindex="-1">
                 Light
               </button>
-              <button type="button" class="theme-option" data-theme-choice="dark" aria-pressed="true">
+              <button type="button" class="theme-option" role="radio" data-theme-choice="dark" aria-checked="true" tabindex="0">
                 Dark
               </button>
             </div>
@@ -99,13 +100,13 @@
       </div>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
       <section class="intro container" id="top">
         <div class="intro-copy">
           <h1>Ben</h1>
           <p class="role">Senior Software Engineer</p>
           <p class="location">
-            <a href="https://maps.google.com/?q=Columbus,+Ohio" target="_blank" rel="noreferrer">
+            <a href="https://maps.google.com/?q=Columbus,+Ohio" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="none"
@@ -117,6 +118,7 @@
                 <circle cx="12" cy="11" r="2" fill="currentColor" stroke="none" />
               </svg>
               Columbus, Ohio
+              <span class="visually-hidden"> (opens in a new tab)</span>
             </a>
           </p>
           <p class="summary">
@@ -125,6 +127,7 @@
             optimization. Contributed to scaling a consumer product from
             thousands to millions of customers.
           </p>
+          <address>
           <ul class="contact">
             <li>
               <a href="mailto:greggbj@gmail.com">
@@ -154,7 +157,7 @@
               <a
                 href="https://www.linkedin.com/in/benjamin-gregg/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <svg class="icon-linkedin" viewBox="0 0 24 24" aria-hidden="true">
                   <rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" />
@@ -164,6 +167,7 @@
                   />
                 </svg>
                 LinkedIn
+                <span class="visually-hidden"> (opens in a new tab)</span>
               </a>
             </li>
             <li>
@@ -181,20 +185,24 @@
               </a>
             </li>
           </ul>
+          </address>
         </div>
 
         <div class="intro-aside">
           <figure class="portrait">
-          <img
-            src="portrait.jpg"
-            alt="Portrait of Benjamin Gregg"
-            onerror="this.remove()"
-          />
-          <figcaption class="portrait-fallback">
-            <strong>B</strong>
-            <span>Your portrait here</span>
-          </figcaption>
-        </figure>
+            <img
+              src="images/portraits/portrait.jpg"
+              alt="Portrait of Benjamin Gregg"
+              width="400"
+              height="400"
+              decoding="async"
+              fetchpriority="high"
+            />
+            <figcaption class="portrait-fallback">
+              <strong>B</strong>
+              <span>Your portrait here</span>
+            </figcaption>
+          </figure>
           <div class="downloads">
             <a id="download-pdf" href="files/Benjamin_Gregg_Resume.pdf" download="Benjamin_Gregg_Resume.pdf">
               <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -368,7 +376,7 @@
         <h2>Professional Experience</h2>
         <div class="jobs">
           <article class="job">
-            <img class="job-logo job-logo-flush" src="logos/earnin.svg" alt="" width="40" height="40" />
+            <img class="job-logo job-logo-flush" src="images/logos/earnin.svg" alt="" width="40" height="40" decoding="async" loading="lazy" />
             <div class="job-body">
               <div class="job-head">
                 <h3>EarnIn (formerly Activehours)</h3>
@@ -487,7 +495,7 @@
         <h2>Internships</h2>
         <div class="jobs">
           <article class="job">
-            <img class="job-logo" src="logos/honda.svg" alt="" width="40" height="40" />
+            <img class="job-logo" src="images/logos/honda.svg" alt="" width="40" height="40" decoding="async" loading="lazy" />
             <div class="job-body">
               <div class="job-head">
                 <h3>Honda North America</h3>
@@ -498,7 +506,7 @@
           </article>
 
           <article class="job">
-            <img class="job-logo job-logo-flush" src="logos/marathon.svg" alt="" width="40" height="40" />
+            <img class="job-logo job-logo-flush" src="images/logos/marathon.svg" alt="" width="40" height="40" decoding="async" loading="lazy" />
             <div class="job-body">
               <div class="job-head">
                 <h3>Marathon Petroleum</h3>
@@ -509,7 +517,7 @@
           </article>
 
           <article class="job">
-            <img class="job-logo" src="logos/ge.svg" alt="" width="40" height="40" />
+            <img class="job-logo" src="images/logos/ge.svg" alt="" width="40" height="40" decoding="async" loading="lazy" />
             <div class="job-body">
               <div class="job-head">
                 <h3>GE Aviation</h3>
@@ -525,7 +533,7 @@
         <h2>Education</h2>
         <div class="jobs">
           <article class="job">
-            <img class="job-logo job-logo-flush" src="logos/uc.svg" alt="" width="40" height="40" />
+            <img class="job-logo job-logo-flush" src="images/logos/uc.svg" alt="" width="40" height="40" decoding="async" loading="lazy" />
             <div class="job-body">
               <div class="job-head">
                 <h3>University of Cincinnati</h3>
@@ -545,6 +553,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>

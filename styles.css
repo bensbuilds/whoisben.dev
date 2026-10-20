@@ -17,13 +17,11 @@
   --contact-hover-color: #eef2f5;
   --contact-hover-border: #8eb4cc;
   --contact-hover-bg: #2c333b;
-  --portrait-border: rgba(168, 188, 204, 0.34);
   --portrait-bg: #2c333b;
   --portrait-text: #eef2f5;
   --portrait-muted: #a7b0b8;
   --track-line: rgba(168, 188, 204, 0.34);
   --footer: #a7b0b8;
-  --location: #a7b0b8;
   --skill-code: #8eb6ff;
   --skill-cloud: #b79cf2;
   --skill-data: #3ec8c0;
@@ -36,7 +34,6 @@
   /* Shared dark hairline. The sticky fade starts under this line and does not tint it. */
   --rule-seen: #262b31;
   --intro-bg: #262c33;
-  --intro-line: rgba(168, 188, 204, 0.34);
   --divider: linear-gradient(var(--rule-seen), var(--rule-seen));
 }
 
@@ -59,13 +56,11 @@ html[data-theme="light"] {
   --contact-hover-color: #1e242b;
   --contact-hover-border: #2f6280;
   --contact-hover-bg: #e3e8ed;
-  --portrait-border: #c5ced6;
   --portrait-bg: #e3e8ed;
   --portrait-text: #1e242b;
   --portrait-muted: #4c5864;
   --track-line: #c5ced6;
   --footer: #4c5864;
-  --location: #4c5864;
   --skill-code: #3d6ec4;
   --skill-cloud: #7a56c4;
   --skill-data: #148f88;
@@ -76,7 +71,6 @@ html[data-theme="light"] {
   --rule: #d3dae0;
   --rule-seen: #d3dae0;
   --intro-bg: #ffffff;
-  --intro-line: #c5ced6;
   --divider: linear-gradient(var(--rule-seen), var(--rule-seen));
 }
 
@@ -114,8 +108,53 @@ h2,
 h3,
 p,
 ul,
-figure {
+figure,
+address {
   margin: 0;
+}
+
+address {
+  display: contents;
+  font-style: normal;
+}
+
+button {
+  font: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+#main:focus {
+  outline: none;
 }
 
 button,
@@ -140,12 +179,6 @@ a:focus-visible {
   z-index: 10;
   background: var(--bg);
   border-bottom: 1px solid var(--rule-seen);
-  box-shadow: none;
-}
-
-html[data-theme="light"] .site-header {
-  background: var(--bg);
-  border-bottom-color: var(--rule-seen);
 }
 
 .site-header::before {
@@ -158,17 +191,13 @@ html[data-theme="light"] .site-header {
      1.35rem; a taller fade was blurring the name and the portrait. Blur cannot
      stay inside this gap without sampling them, so this is a short gradient. */
   top: calc(100% + 1px);
-  bottom: auto;
   height: calc(1.35rem - 8px);
   pointer-events: none;
-  clip-path: none;
   background: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--bg) 72%, transparent),
     transparent
   );
-  backdrop-filter: none;
-  mask-image: none;
 }
 
 .header-inner {
@@ -343,7 +372,7 @@ html:not([data-theme="light"]) .settings-menu {
   color: var(--text);
 }
 
-.theme-option[aria-pressed="true"] {
+.theme-option[aria-checked="true"] {
   background: color-mix(in srgb, var(--text) 10%, var(--bg));
   color: var(--text);
 }
@@ -532,7 +561,6 @@ h1 {
   max-width: 100%;
   align-self: stretch;
   aspect-ratio: 1;
-  box-sizing: border-box;
   margin-top: 0;
   border-radius: 18px;
   overflow: hidden;
@@ -540,7 +568,6 @@ h1 {
   background: var(--portrait-bg);
   display: grid;
   place-items: center;
-  box-shadow: none;
 }
 
 html[data-theme="light"] .portrait {
@@ -594,17 +621,8 @@ html[data-theme="light"] .portrait {
 .experience,
 .internships,
 .education {
-  border-top: 0;
   padding: 1.45rem 0 1.6rem;
   scroll-margin-top: 66px;
-}
-
-.skills::before,
-.experience::before,
-.internships::before,
-.education::before,
-.site-footer::before {
-  content: none;
 }
 
 h2 {
@@ -809,12 +827,6 @@ h2 {
   font-weight: 600;
   line-height: 1;
   text-align: center;
-}
-
-.job-copy {
-  max-width: 52rem;
-  color: var(--muted);
-  font-size: 0.98rem;
 }
 
 .highlights {
@@ -1039,6 +1051,7 @@ h2 {
 }
 
 @media print {
+  .skip-link,
   .downloads,
   .settings,
   .settings-menu,
@@ -1091,7 +1104,6 @@ h2 {
   .job-when,
   .job-title,
   .job-meta,
-  .job-copy,
   .highlights,
   .site-footer,
   .portrait-fallback span {
