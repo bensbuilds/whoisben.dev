@@ -1,0 +1,108 @@
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    env:
+      S3_BUCKET: ${{ vars.S3_BUCKET }}
+      DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Prepare website files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            index.html
+            styles.css
+            script.js
+            favicon.png
+            images/portraits/portrait.jpg
+            images/logos/earnin.svg
+            images/logos/ge.svg
+            images/logos/honda.svg
+            images/logos/marathon.svg
+            images/logos/uc.svg
+            files/Benjamin_Gregg_Resume.pdf
+            files/Benjamin_Gregg_Resume.docx
+          )
+
+          for file in "${required_files[@]}"; do
+            test -s "$file" || {
+              echo "::error::Required file missing or empty: $file"
+              exit 1
+            }
+          done
+
+          node --check script.js
+
+          mkdir -p "$RUNNER_TEMP/site"
+          cp index.html styles.css script.js favicon.png "$RUNNER_TEMP/site/"
+          mkdir -p "$RUNNER_TEMP/site/images"
+          cp -R images/portraits images/logos "$RUNNER_TEMP/site/images/"
+          cp -R files "$RUNNER_TEMP/site/"
+
+      - name: Connect to AWS
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+          allowed-account-ids: "513594860898"
+
+      - name: Upload website assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          aws s3 sync "$RUNNER_TEMP/site/" "s3://$S3_BUCKET/" \
+            --exclude "index.html" \
+            --cache-control "max-age=0,must-revalidate" \
+            --only-show-errors
+
+      - name: Publish homepage
+        shell: bash
+        run: |
+          set -euo pipefail
+          aws s3 cp "$RUNNER_TEMP/site/index.html" \
+            "s3://$S3_BUCKET/index.html" \
+            --content-type "text/html" \
+            --cache-control "no-cache" \
+            --only-show-errors
+
+      - name: Refresh CloudFront cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          invalidation_id=$(aws cloudfront create-invalidation \
+            --distribution-id "$DISTRIBUTION_ID" \
+            --paths "/*" \
+            --query 'Invalidation.Id' \
+            --output text)
+
+          aws cloudfront wait invalidation-completed \
+            --distribution-id "$DISTRIBUTION_ID" \
+            --id "$invalidation_id"
+
+      - name: Check website responds
+        run: curl --fail --silent --show-error --retry 3 --output /dev/null https://whoisben.dev/
