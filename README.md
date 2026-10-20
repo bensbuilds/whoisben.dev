@@ -1,6 +1,6 @@
 # whoisben.dev
 
-Résumé site for Benjamin Gregg, a senior software engineer in Columbus, Ohio.
+My résumé/portfolio site.
 
 The site is static: one HTML page, one stylesheet, and one script. Dark is the default theme. Light mode is stored in the browser under `whoisben-theme`.
 
