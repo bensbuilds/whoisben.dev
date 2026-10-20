@@ -8,7 +8,34 @@
       name="description"
       content="Benjamin Gregg is a senior software engineer in Columbus, Ohio. He helped scale EarnIn from thousands to millions of customers."
     />
+    <link rel="canonical" href="https://whoisben.dev/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Benjamin Gregg — Senior Software Engineer" />
+    <meta
+      property="og:description"
+      content="Benjamin Gregg is a senior software engineer in Columbus, Ohio. He helped scale EarnIn from thousands to millions of customers."
+    />
+    <meta property="og:url" content="https://whoisben.dev/" />
+    <meta property="og:image" content="https://whoisben.dev/images/portraits/portrait.jpg" />
+    <meta property="og:image:alt" content="Portrait of Benjamin Gregg" />
+    <meta property="profile:first_name" content="Benjamin" />
+    <meta property="profile:last_name" content="Gregg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Benjamin Gregg — Senior Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Benjamin Gregg is a senior software engineer in Columbus, Ohio. He helped scale EarnIn from thousands to millions of customers."
+    />
+    <meta name="twitter:image" content="https://whoisben.dev/images/portraits/portrait.jpg" />
     <meta name="theme-color" content="#1a1e23" />
+    <script>
+      try {
+        if (localStorage.getItem("whoisben-theme") === "light") {
+          document.documentElement.dataset.theme = "light";
+          document.querySelector('meta[name="theme-color"]').setAttribute("content", "#eef1f4");
+        }
+      } catch {}
+    </script>
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,13 +45,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script>
-      try {
-        if (localStorage.getItem("whoisben-theme") === "light") {
-          document.documentElement.dataset.theme = "light";
-        }
-      } catch {}
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
